@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>معرض برج العائله للركنات</title>
+    <style>
+        /* إعدادات الألوان والخطوط */
+        :root {
+            --light-beige: #b0a7a5;      /* بيج فاتح للخلفيات */
+            --dark-beige: #331919;       /* بيج غامق للعناوين والأزرار */
+            --darker-beige: lab(20.11% 19.54 13.33);     /* بني غامق للنصوص */
+            --white: #b0a7a5;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-beige);
+            color: var(--darker-beige);
+            scroll-behavior: smooth; /* تمرير ناعم عند الضغط على الروابط */
+        }
+
+        /* شريط التنقل */
+        nav {
+            background-color: var(--dark-beige);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--light-beige);
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: 0.3s;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover {
+            background-color: var(--darker-beige);
+            color: var(--light-beige);
+        }
+
+        /* تنسيق الأقسام */
+        section {
+            padding: 60px 20px;
+            border-bottom: 1px solid #dcdcdc;
+        }
+
+        /* القسم الرئيسي (الرئيسية) */
+        #home {
+            text-align: center;
+            background-color: var(--white);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 900px;
+            height: 500px;
+            object-fit: contain;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            margin-top: 20px;
+        }
+
+        h2 {
+            color: var(--dark-beige);
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            text-align: center;
+            border-bottom: 3px solid var(--dark-beige);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        /* شبكة الصور */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .gallery-item {
+            background: var(--white);
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            aspect-ratio: 16/9;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px;
+        }
+        
+
+        /* قسم التواصل */
+        #contact {
+            background-color: var(--dark-beige);
+            color: var(--light-beige);
+            text-align: center;
+        }
+
+        #contact h2 {
+            color: var(--light-beige);
+            border-color: var(--light-beige);
+        }
+
+        .contact-box {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 800px;
+            margin: 0 auto;
+            border: 2px solid var(--light-beige);
+        }
+
+        .address {
+            font-size: 1.3em;
+            margin: 20px 0;
+            font-weight: bold;
+            color: var(--light-beige);
+        }
+
+        .description {
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        /* أزرار التواصل */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .btn-whatsapp {
+            background-color: #3f6f51;
+            color: white;
+        }
+        .btn-facebook {
+            background-color: #354d6c;
+            color: white;
+        }
+        .btn-google {
+            background-color: #97645f;
+            color: white;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        /* التذييل */
+        footer {
+            background-color: var(--darker-beige);
+            color: var(--light-beige);
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+        }
+
+        /* للتجاوب مع الموبايل */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .hero-image {
+                height: 300px;
+            }
+            h2 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- شريط التنقل -->
+    <nav>
+        <ul>
+            <li><a href="#home">الرئيسية</a></li>
+            <li><a href="#modals">الموديلات</a></li>
+            <li><a href="#natural">شغل على الطبيعة</a></li>
+            <li><a href="#contact">للتواصل معنا</a></li>
+        </ul>
+    </nav>
+
+    <!-- الصفحة الرئيسية -->
+    <section id="home">
+        <h2>معرض برج العائله</h2>
+        <!-- ضع صورة الرئيسية هنا -->
+        <img src="1.jfif" alt="صورة المعرض الرئيسية" class="hero-image">
+    </section>
+    
+    <section id="modals">
+        <div style="text-align: center;">
+         <h2>الموديلات</h2>
+        </div>
+        <div class="gallery-grid">
+            
+            <div class="gallery-item"><img src="77.jfif" alt="موديل 1"></div>
+            <div class="gallery-item"><img src="15.jfif" alt="موديل 2"></div>
+            <div class="gallery-item"><img src="3.jfif" alt="موديل 3"></div>
+            <div class="gallery-item"><img src="8.jfif" alt="موديل 4"></div>
+            <div class="gallery-item"><img src="9.jfif" alt="موديل 5"></div>
+<div class="gallery-item"><img src="13.jfif" alt="موديل 5"></div>
+<div class="gallery-item"><img src="28.jfif" alt="موديل 5"></div>
+<div class="gallery-item"><img src="12.jfif" alt="موديل 5"></div>
+<div class="gallery-item"><img src="100.jfif" alt="موديل 5"></div>
+<div class="gallery-item"><img src="76.jfif" alt="موديل 5"></div>
+<div class="gallery-item"><img src="21.jfif" alt="موديل 5"></div>
+        </div>
+    </section>
+
+    <!-- صفحة شغل الطبيعة -->
+    <section id="natural">
+        <div style="text-align: center;">
+            <h2>شغل على الطبيعة</h2>
+        </div>
+        <div class="gallery-grid">
+            <!-- 11 صورة للطبيعة -->
+            <div class="gallery-item"><img src="Telegram Desktop/1.jpg" alt="طبيعة 1"></div>
+            <div class="gallery-item"><img src="Telegram Desktop/5.jpg" alt="طبيعة 2"></div>
+            <div class="gallery-item"><img src="Telegram Desktop/9.jpg" alt="طبيعة 3"></div>
+            <div class="gallery-item"><img src="Telegram Desktop/11.jpg" alt="طبيعة 4"></div>
+            <div class="gallery-item"><img src="Telegram Desktop/10.jpg" alt="طبيعة 5"></div>
+            <div class="gallery-item"><img src="Telegram Desktop/4.jpg" alt="طبيعة 6"></div>
+            <div class="gallery-item"><img src="Telegram Desktop/2.jpg" alt="طبيعة 7"></div>
+        </div>
+    </section>
+
+    <!-- صفحة التواصل -->
+    <section id="contact">
+        <div class="contact-box">
+            <h2>ورشة الحج محمدزين</h2>
+        <p class="description">لصناعه الركنات و الكنب الحديث و التنجيد 
+العنوان العجمي الدخيله خلف الشهر العقاري القديم </p>
+<div class="social-links">
+    <a href="https://www.facebook.com/share/1ATRzs3fiU/"target="_blank"class="btn-facebook">Facebook</a>
+
+    <a href="https://wa.me/201228391600" target="_blank"class="btn-whatsapp">Whatsapp</a>
+
+    <a href="https://maps.app.goo.gl/SDEWSskwAxs7L5ou8?g_st=aw" target="_blank"class="btn-google">Google map</a>
+</div>
+</div></section></body></html>
